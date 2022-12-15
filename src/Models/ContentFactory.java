@@ -1,7 +1,6 @@
 package Models;
 
 public interface ContentFactory {
-
-    Content createContent(int publisherId);
+    Content produceContent(int publisherId);
 
 }

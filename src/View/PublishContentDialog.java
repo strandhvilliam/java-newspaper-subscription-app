@@ -20,9 +20,7 @@ public class PublishContentDialog extends JPanel {
     public Newspaper getSelectedNewspaper() {
         return (Newspaper) newspaperComboBox.getSelectedItem();
     }
-
-    public boolean isAd() {
+    public boolean getIsAd() {
         return checkBox.isSelected();
     }
-
 }

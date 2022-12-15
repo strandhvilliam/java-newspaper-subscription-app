@@ -2,8 +2,8 @@ package Models;
 
 public class AdFactory implements ContentFactory {
 
-    @Override
-    public Ad createContent(int publisherID) {
+
+    public Ad produceContent(int publisherID) {
         String title = "PlaceHolder Advertisement Title";
         String advertiser = "PlaceHolder Advertiser";
         String paragraph = """

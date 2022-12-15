@@ -100,7 +100,7 @@ public class ClientPanel extends JPanel implements TextUpdater{
 
         setLayout(new BorderLayout());
         add(topPanel, BorderLayout.NORTH);
-        add(clientTextPane, BorderLayout.CENTER);
+        add(clientScrollPane, BorderLayout.CENTER);
     }
 
     public void setArticleReader(ArticleReader reader) {

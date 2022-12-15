@@ -14,11 +14,11 @@ public class Main {
 
         MainGUI gui = new MainGUI();
         TextUpdater clientPanel = new ClientPanel();
-        App app = new App(gui, clientPanel);
+        App app = new App(clientPanel);
         gui.addClientPanel((JPanel) clientPanel);
 
         TextUpdater clientPanel2 = new ClientPanel();
-        App app2 = new App(gui, clientPanel2);
+        App app2 = new App(clientPanel2);
         gui.addClientPanel((JPanel) clientPanel2);
     }
 }

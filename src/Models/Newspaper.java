@@ -17,7 +17,6 @@ public class Newspaper implements Observable {
     private List<Observer> subscribers;
 
     private ContentFactory factory;
-
     private SingletonDataHandler singletonDataHandler;
 
     public Newspaper(String name, String description, double monthlyPrice, int id) {
@@ -47,12 +46,10 @@ public class Newspaper implements Observable {
     }
 
     public void publishContent(boolean isAd) {
-        if (isAd) {
-            factory = new AdFactory();
-        } else {
-            factory = new ArticleFactory();
-        }
-        Content content = factory.createContent(id);
+
+        factory = FactoryCreator.getFactory(isAd);
+
+        Content content = factory.produceContent(id);
         notifySubscribers(content);
         if (!isAd) {
             singletonDataHandler.addArticle(id, (Article) content); //add article to data singleton only if not ad

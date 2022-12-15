@@ -11,29 +11,27 @@ public class App implements Observer {
 
 
     private final ArticleReader articleReader;
-    private final JFrame mainGUI;
 
-    private final TextUpdater client;
+    private final TextUpdater guiClient;
 
     private PayBehavior payBehavior;
     private List<Integer> subbedNewspapersID = new ArrayList<>();
     private SingletonDataHandler singletonDataHandler = SingletonDataHandler.getInstance();
 
 
-    public App(JFrame mainGUI, TextUpdater client) {
-        this.mainGUI = mainGUI;
-        this.client = client;
+    public App(TextUpdater guiClient) {
+        this.guiClient = guiClient;
         this.articleReader = new ArticleReader();
         this.payBehavior = new StandardPayBehavior();
-        client.setArticleReader(articleReader);
-        client.setController(this);
+        guiClient.setArticleReader(articleReader);
+        guiClient.setController(this);
     }
 
     @Override
     public void update(Content content) {
         //check paybehavior and if ad
         articleReader.addArticle(content.getHTMLContent());
-        client.updateTextPane();
+        guiClient.updateTextPane();
     }
 
     public void subscribe(int n) {

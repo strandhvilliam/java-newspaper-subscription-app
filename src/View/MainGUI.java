@@ -60,7 +60,9 @@ public class MainGUI extends JFrame {
             PublishContentDialog publishContentDialog = new PublishContentDialog(singletonDataHandler.getNewspapers());
             int option = JOptionPane.showConfirmDialog(null, publishContentDialog, "Publish Models.Content", JOptionPane.OK_CANCEL_OPTION);
             if (option == JOptionPane.OK_OPTION) {
-                publishContentDialog.getSelectedNewspaper().publishContent(publishContentDialog.isAd());
+                boolean isAd = publishContentDialog.getIsAd();
+                System.out.println(isAd);
+                publishContentDialog.getSelectedNewspaper().publishContent(isAd);
             }
         });
 
