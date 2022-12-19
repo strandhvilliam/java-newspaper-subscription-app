@@ -1,11 +1,13 @@
 package Models;
 
+import java.io.Serializable;
+
 public class Article extends Content {
     private String author;
 
 
-    public Article(int publisherId, String title, String paragraph, String author) {
-        super(publisherId, title, paragraph);
+    public Article(String publisherName, String title, String paragraph, String author) {
+        super(publisherName, title, paragraph);
         this.author = author;
     }
 

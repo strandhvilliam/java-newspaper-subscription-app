@@ -1,11 +1,10 @@
 package Models;
 
-import Controllers.SingletonDataHandler;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Newspaper implements Observable {
+public class Newspaper implements Observable, Serializable {
 
     private String name;
     private double monthlyPrice;
@@ -13,25 +12,28 @@ public class Newspaper implements Observable {
 
     private double totalRevenue;
 
-    private final int id;
-    private List<Observer> subscribers;
+    private final List<Observer> subscribers;
+
+    private final List<Content> publishedContent;
 
     private ContentFactory factory;
-    private SingletonDataHandler singletonDataHandler;
 
-    public Newspaper(String name, String description, double monthlyPrice, int id) {
+
+    public Newspaper(String name, String description, double monthlyPrice) {
         this.name = name;
         this.monthlyPrice = monthlyPrice;
         this.description = description;
         this.totalRevenue = 0;
-        this.id = id;
         this.subscribers = new ArrayList<>();
-        this.singletonDataHandler = SingletonDataHandler.getInstance();
+        this.publishedContent = new ArrayList<>();
+        //this.singletonDataHandler = SingletonDataHandler.getInstance();
     }
 
 
     @Override
     public void addSubscriber(Observer sub) {
+        System.out.println("Newspaper: " + name + " added subscriber");
+        System.out.println(this.hashCode());
         subscribers.add(sub);
     }
 
@@ -41,27 +43,21 @@ public class Newspaper implements Observable {
     }
 
     @Override
-    public void notifySubscribers(Content content) {
-        subscribers.forEach(sub -> sub.update(content));
+    public void notifySubscribers(String pubName) {
+        System.out.println(subscribers.size());
+        subscribers.forEach(sub -> sub.update(pubName));
     }
 
     public void publishContent(boolean isAd) {
-
         factory = FactoryCreator.getFactory(isAd);
-
-        Content content = factory.produceContent(id);
-        notifySubscribers(content);
-        if (!isAd) {
-            singletonDataHandler.addArticle(id, (Article) content); //add article to data singleton only if not ad
-        }
+        Content content = factory.produceContent(name);
+        System.out.println(content.getTitle());
+        publishedContent.add(content);
+        notifySubscribers(name);
     }
 
     public void receivePayment(double amount) {
         totalRevenue += amount;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {
@@ -87,6 +83,18 @@ public class Newspaper implements Observable {
 
     @Override
     public String toString() {
-        return name + " - " + description + " - " + "$"+ monthlyPrice + "ID: " + id;
+        return name + " - " + description + " - " + "$"+ monthlyPrice;
+    }
+
+    public List<Observer> getSubscribers() {
+        return subscribers;
+    }
+
+    public List<Content> getPublishedContent() {
+        return publishedContent;
+    }
+
+    public Content getLatestContent() {
+        return publishedContent.get(publishedContent.size() - 1);
     }
 }

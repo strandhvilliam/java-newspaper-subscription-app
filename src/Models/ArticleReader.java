@@ -1,21 +1,27 @@
 package Models;
 
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ArticleReader {
 
-    private List<String> articleList = new ArrayList<>();
+    private final List<Content> articleFeed = new ArrayList<>();
 
-    public ArticleReader() {
-
-    }
-    public void addArticle(String htmlContent) {
-        articleList.add(htmlContent);
+    public void addArticle(Content content) {
+        articleFeed.add(content);
     }
 
-    public List<String> getArticleList() {
-        return articleList;
+    public void sortArticles() {
+        Collections.sort(articleFeed);
+    }
+
+    public List<String> getHtmlArticlesList() {
+
+        return articleFeed
+                .stream()
+                .map(k -> k.getHTMLContent())
+                .toList();
+
     }
 }

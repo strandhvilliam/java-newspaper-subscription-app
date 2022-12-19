@@ -3,7 +3,7 @@ package Models;
 public class AdFactory implements ContentFactory {
 
 
-    public Ad produceContent(int publisherID) {
+    public Ad produceContent(String publisherName) {
         String title = "PlaceHolder Advertisement Title";
         String advertiser = "PlaceHolder Advertiser";
         String paragraph = """
@@ -13,6 +13,6 @@ public class AdFactory implements ContentFactory {
                 Nunc eleifend in lectus vel vehicula. Cras volutpat purus neque, vel placerat orci convallis id. Curabitur ut pharetra odio, sed
                 iaculis nisi. Curabitur pulvinar vestibulum justo, at malesuada dui lobortis vel.
                 """;
-        return new Ad(publisherID, title, paragraph, advertiser);
+        return new Ad(publisherName, title, paragraph, advertiser);
     }
 }

@@ -1,16 +1,17 @@
 package Models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public abstract class Content {
+public abstract class Content implements Serializable, Comparable<Content> {
 
-    private int publisherID;
+    private String publisherName;
     private String title;
     private String paragraph;
     private LocalDate date;
 
-    public Content(int publisherID, String title, String paragraph) {
-        this.publisherID = publisherID;
+    public Content(String publisherName, String title, String paragraph) {
+        this.publisherName = publisherName;
         this.title = title;
         this.paragraph = paragraph;
         this.date = LocalDate.now();
@@ -19,8 +20,8 @@ public abstract class Content {
 
     public abstract String getHTMLContent();
 
-    public int getPublisherID() {
-        return publisherID;
+    public String getPublisherName() {
+        return publisherName;
     }
 
     public String getTitle() {
@@ -33,5 +34,10 @@ public abstract class Content {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    @Override
+    public int compareTo(Content o) {
+        return this.date.compareTo(o.getDate());
     }
 }

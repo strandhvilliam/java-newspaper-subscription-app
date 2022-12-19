@@ -4,5 +4,5 @@ public interface Observable {
 
     void addSubscriber(Observer subscriber);
     void removeSubscriber(Observer subscriber);
-    void notifySubscribers(Content content);
+    void notifySubscribers(String pubName);
 }

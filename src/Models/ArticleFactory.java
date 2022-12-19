@@ -2,7 +2,7 @@ package Models;
 
 public class ArticleFactory implements ContentFactory {
 
-    public Article produceContent(int publisherID) {
+    public Article produceContent(String publisherName) {
         String title = "PlaceHolder Models.Article Title";
         String author = "PlaceHolder Author";
         String paragraph = """
@@ -21,6 +21,6 @@ public class ArticleFactory implements ContentFactory {
                 consequat purus lorem tempor est. Integer gravida porta turpis quis pulvinar. Sed felis felis, ultrices vitae
                 felis sed, mollis dictum augue""";
 
-        return new Article(publisherID, title, paragraph, author);
+        return new Article(publisherName, title, paragraph, author);
     }
 }

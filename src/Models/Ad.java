@@ -4,8 +4,8 @@ public class Ad extends Content {
 
     private String advertiser;
 
-    public Ad(int publisherId, String title, String paragraph, String advertiser) {
-        super(publisherId, title, paragraph);
+    public Ad(String publisherName, String title, String paragraph, String advertiser) {
+        super(publisherName, title, paragraph);
         this.advertiser = advertiser;
     }
 
