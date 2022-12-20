@@ -12,7 +12,6 @@ import java.util.List;
 
 public class SwingClientGUI extends JPanel implements ClientGUI {
 
-
     private final JPanel topPanel = new JPanel();
     private final JPanel buttonPanel = new JPanel();
     private final JPanel articlePanel = new JPanel();

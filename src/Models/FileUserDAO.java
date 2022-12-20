@@ -6,14 +6,12 @@ import java.util.List;
 
 public class FileUserDAO implements UserDAO {
     private final File dbFile;
-
     private List<User> usersList;
 
     public FileUserDAO(String userDBFilePath) {
         dbFile = new File(userDBFilePath);
         this.usersList = new ArrayList<>();
     }
-
     public void addUser(User u) {
         usersList.add(u);
     }
@@ -23,7 +21,6 @@ public class FileUserDAO implements UserDAO {
     }
 
     public void updateUser(User user) {
-
     }
 
     public void saveUsers() {
@@ -37,7 +34,6 @@ public class FileUserDAO implements UserDAO {
             e.printStackTrace();
         }
     }
-
     public void loadUsers() {
         List<User> list = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(dbFile))) {
@@ -59,6 +55,5 @@ public class FileUserDAO implements UserDAO {
         usersList = new ArrayList<>(list);
 
     }
-
 
 }

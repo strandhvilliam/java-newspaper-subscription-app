@@ -6,16 +6,10 @@ import View.ClientGUI;
 import java.util.List;
 
 public class UserController {
-
-
     private final ArticleReader articleReader;
-
     private User user;
-
     private final NewspaperDAO newspaperDAO;
-
     private final ClientGUI clientGUI;
-
 
     public UserController(ClientGUI clientGUI, User user, NewspaperDAO newspaperDAO) {
         this.clientGUI = clientGUI;

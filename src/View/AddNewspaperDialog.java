@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class AddNewspaperDialog extends JPanel {
 
-
     private JTextField nameField = new JTextField(20);
     private JTextField descriptionField = new JTextField(20);
     private JTextField monthlyPriceField = new JTextField(20);

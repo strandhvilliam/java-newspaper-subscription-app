@@ -9,10 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminApp {
-
-
     private List<ClientGUI> clientPanels;
-
     private AdminGUI adminGUI;
     private NewspaperDAO newspaperDAO;
     private UserDAO userDAO;

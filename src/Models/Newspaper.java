@@ -4,18 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Newspaper implements Observable, Serializable {
+public class Newspaper implements Observable {
 
     private String name;
     private double monthlyPrice;
     private String description;
-
     private double totalRevenue;
-
     private final List<Observer> subscribers;
-
     private final List<Content> publishedContent;
-
     private ContentFactory factory;
 
 

@@ -8,14 +8,10 @@ import java.util.List;
 
 public class User implements Observer {
 
-
     private String name;
     private String email;
-
     private PayBehavior payBehavior;
-
     private List<String> subscribedPaperNames;
-
     private UserController userController;
 
     public User(String name, String email, PayBehavior payBehavior) {

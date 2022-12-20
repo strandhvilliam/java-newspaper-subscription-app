@@ -23,7 +23,6 @@ public class FileNewspaperDAO implements NewspaperDAO {
     }
 
     public void updateNewspaper(Newspaper newspaper) {
-
     }
 
     @Override

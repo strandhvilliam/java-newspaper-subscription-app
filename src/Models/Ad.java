@@ -2,7 +2,7 @@ package Models;
 
 public class Ad extends Content {
 
-    private String advertiser;
+    private final String advertiser;
 
     public Ad(String publisherName, String title, String paragraph, String advertiser) {
         super(publisherName, title, paragraph);

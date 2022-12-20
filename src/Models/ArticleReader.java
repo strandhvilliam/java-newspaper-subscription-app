@@ -24,6 +24,5 @@ public class ArticleReader {
                 .stream()
                 .map(k -> k.getHTMLContent())
                 .toList();
-
     }
 }

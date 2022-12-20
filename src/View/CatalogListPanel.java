@@ -10,7 +10,6 @@ import java.util.List;
 public class CatalogListPanel extends JPanel {
 
 
-
     private final DefaultListModel<Newspaper> unsubbedListModel = new DefaultListModel<>();
     private final DefaultListModel<Newspaper> subbedListModel = new DefaultListModel<>();
     private final JList<Newspaper> unsubbedList = new JList<>();
@@ -34,25 +33,21 @@ public class CatalogListPanel extends JPanel {
         unsubbedList.setModel(unsubbedListModel);
         subbedList.setModel(subbedListModel);
 
-
-
-
         setLayout(new BorderLayout());
         listPanel.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        c.gridy= 0;
+        c.gridy = 0;
         c.gridx = 0;
         c.insets = new Insets(0, 0, 10, 0);
         listPanel.add(unsubbedLabel, c);
         c.gridx = 2;
         listPanel.add(subbedLabel, c);
-        c.gridy= 1;
+        c.gridy = 1;
         scrollPane1.setPreferredSize(new Dimension(200, 200));
         scrollPane2.setPreferredSize(new Dimension(200, 200));
 
         buttonPanel.setLayout(new GridLayout(2, 1, 0, 10));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
-
 
         subscribeBtn.addActionListener(e -> {
             List<Newspaper> selected = unsubbedList.getSelectedValuesList();
@@ -87,20 +82,4 @@ public class CatalogListPanel extends JPanel {
         return Collections.list(subbedListModel.elements());
     }
 
-    public List<Newspaper> getUnsubbedNewspapers() {
-        return Collections.list(subbedListModel.elements());
-    }
-
-    /*public void setCatalog(String[] unsubbedNewspapers, String[] subbedNewspapers) {
-        unsubbedListModel.clear();
-        subbedListModel.clear();
-        for (String n : unsubbedNewspapers) {
-            unsubbedListModel.addElement(n);
-        }
-        for (String n : subbedNewspapers) {
-            subbedListModel.addElement(n);
-        }
-        unsubbedList.setModel(unsubbedListModel);
-        subbedList.setModel(subbedListModel);
-    }*/
 }

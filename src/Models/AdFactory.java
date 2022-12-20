@@ -2,7 +2,6 @@ package Models;
 
 public class AdFactory implements ContentFactory {
 
-
     public Ad produceContent(String publisherName) {
         String title = "PlaceHolder Advertisement Title";
         String advertiser = "PlaceHolder Advertiser";

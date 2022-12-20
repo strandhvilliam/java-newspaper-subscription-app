@@ -18,7 +18,5 @@ public class Main {
 
         SwingAdminGUI gui = new SwingAdminGUI();
         AdminApp adminApp = new AdminApp(gui, newspaperDAO, userDAO);
-
-
     }
 }
