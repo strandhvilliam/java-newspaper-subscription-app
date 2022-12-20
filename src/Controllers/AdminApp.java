@@ -1,10 +1,9 @@
 package Controllers;
 
-import Models.Newspaper;
-import Models.NewspaperDAO;
-import Models.UserDAO;
+import Models.*;
 import View.AdminGUI;
 import View.ClientGUI;
+import View.SwingClientGUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,17 +22,14 @@ public class AdminApp {
         this.newspaperDAO = newspaperDAO;
         this.userDAO = userDAO;
         clientPanels = new ArrayList<>();
+        userDAO.loadUsers();
+        userDAO.readUsers().forEach(user -> initUser(user));
         adminGUI.setGUIController(this);
     }
 
     public void createNewspaper(String name, String publisherName, double monthlyCost) {
         // TODO implement here
         newspaperDAO.createNewspaper(name, publisherName, monthlyCost);
-    }
-
-
-    public void createClient(String name, String email, String payBehavior) {
-        // TODO implement here
     }
 
     public List<Newspaper> getNewspapers() {
@@ -52,8 +48,29 @@ public class AdminApp {
         clientPanels.add(clientPanel);
     }
 
-    public int exitApp() {
+    public void exitApp() {
         newspaperDAO.saveNewspapers();
-        return 0;
+        userDAO.saveUsers();
     }
+
+    public void createUser(String name, String email, boolean isPremium) {
+        User user;
+        if (isPremium) {
+            user = new User(name, email, new PremiumPayBehavior());
+        } else {
+            user = new User(name, email, new StandardPayBehavior());
+        }
+        userDAO.addUser(user);
+        initUser(user);
+    }
+
+    public void initUser(User user) {
+        ClientGUI clientGUI = new SwingClientGUI();
+        UserController userController = new UserController(clientGUI, user, newspaperDAO);
+        clientGUI.setGUIController(userController);
+        user.setUserApp(userController);
+        addClientPanel(clientGUI);
+        System.out.println("Added user " + user.getName());
+    }
+
 }

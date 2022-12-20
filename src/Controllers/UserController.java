@@ -13,16 +13,14 @@ public class UserController {
     private User user;
 
     private final NewspaperDAO newspaperDAO;
-    private final UserDAO userDAO;
 
     private final ClientGUI clientGUI;
 
 
-    public UserController(ClientGUI clientGUI, User user, NewspaperDAO newspaperDAO, UserDAO userDAO) {
+    public UserController(ClientGUI clientGUI, User user, NewspaperDAO newspaperDAO) {
         this.clientGUI = clientGUI;
         this.user = user;
         this.newspaperDAO = newspaperDAO;
-        this.userDAO = userDAO;
         this.articleReader = new ArticleReader();
         clientGUI.setGUIController(this);
         user.setUserApp(this);
@@ -32,7 +30,14 @@ public class UserController {
         //check paybehavior and if ad
         Newspaper newspaper = newspaperDAO.readNewspapers().stream().filter(n -> n.getName().equals(pubName)).findFirst().get();
         System.out.println("Updating article reader for " + newspaper.hashCode());
-        articleReader.addArticle(newspaper.getLatestContent());
+        Content content = newspaper.getLatestContent();
+        if (content instanceof Ad) {
+            if (!user.getPayBehavior().isPremium()) {
+               articleReader.addArticle(content);
+            }
+        } else {
+            articleReader.addArticle(content);
+        }
         clientGUI.updateArticleFeed(articleReader.getHtmlArticlesList());
     }
 
@@ -75,6 +80,7 @@ public class UserController {
     }
 
 
-
-
+    public User getUser() {
+        return user;
+    }
 }

@@ -1,6 +1,7 @@
 package View;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class AddNewspaperDialog extends JPanel {
 
@@ -10,13 +11,25 @@ public class AddNewspaperDialog extends JPanel {
     private JTextField monthlyPriceField = new JTextField(20);
 
     public AddNewspaperDialog() {
-
-        add(new JLabel("Name:"));
-        add(nameField);
-        add(new JLabel("Description:"));
-        add(descriptionField);
-        add(new JLabel("Monthly Price:"));
-        add(monthlyPriceField);
+        setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.insets = new Insets(4, 8, 4, 8);
+        c.anchor = GridBagConstraints.WEST;
+        c.gridx = 0;
+        c.gridy = 0;
+        add(new JLabel("Name:"), c);
+        c.gridx = 1;
+        add(nameField, c);
+        c.gridx = 0;
+        c.gridy = 1;
+        add(new JLabel("Description:"), c);
+        c.gridx = 1;
+        add(descriptionField, c);
+        c.gridx = 0;
+        c.gridy = 2;
+        add(new JLabel("Monthly Price:"), c);
+        c.gridx = 1;
+        add(monthlyPriceField, c);
 
     }
 

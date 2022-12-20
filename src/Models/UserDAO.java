@@ -4,9 +4,12 @@ import java.util.List;
 
 public interface UserDAO {
 
-    void createUser(String name, String email, PayBehavior payBehavior);
+    void addUser(User user);
     List<User> readUsers();
     void updateUser(User user);
+
+    void saveUsers();
+    void loadUsers();
 
 
 }

@@ -9,7 +9,7 @@ public class ArticleReader {
     private final List<Content> articleFeed = new ArrayList<>();
 
     public void addArticle(Content content) {
-        articleFeed.add(content);
+        articleFeed.add(0, content);
     }
 
     public void sortArticles() {
@@ -17,6 +17,8 @@ public class ArticleReader {
     }
 
     public List<String> getHtmlArticlesList() {
+
+        articleFeed.forEach(content -> System.out.println(content.getPublisherName()));
 
         return articleFeed
                 .stream()

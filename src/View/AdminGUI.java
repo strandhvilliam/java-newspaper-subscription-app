@@ -4,9 +4,11 @@ import Controllers.AdminApp;
 
 public interface AdminGUI {
 
-    void showAddNewspaperDialog();
+    void showAddNewspaperWindow();
 
-    void showPublishContentDialog();
+    void showPublishContentWindow();
+
+    void showCreateUserWindow();
 
     void setGUIController(AdminApp adminApp);
 }

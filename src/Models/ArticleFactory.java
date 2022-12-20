@@ -3,7 +3,7 @@ package Models;
 public class ArticleFactory implements ContentFactory {
 
     public Article produceContent(String publisherName) {
-        String title = "PlaceHolder Models.Article Title";
+        String title = "PlaceHolder Article Title";
         String author = "PlaceHolder Author";
         String paragraph = """
                 Lorem ipsum dolor sit amet

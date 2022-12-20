@@ -26,4 +26,9 @@ public class PremiumPayBehavior implements PayBehavior {
     public boolean isPremium() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Premium";
+    }
 }

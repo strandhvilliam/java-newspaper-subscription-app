@@ -17,6 +17,6 @@ public class Article extends Content {
 
     @Override
     public String getHTMLContent() {
-        return "<html><h1>" + getTitle() + "</h1>\n<h3>" + getAuthor() + "</h3>\n<p>" + getParagraph() + "</p></html>";
+        return "<html><h1>" + getTitle() + "</h1>\n<h3>" + getPublisherName() + "</h3>\n<p>" + getParagraph() + "</p>" + "<h3>" + getAuthor() + "</h3></html>";
     }
 }

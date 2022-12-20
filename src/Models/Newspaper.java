@@ -32,8 +32,6 @@ public class Newspaper implements Observable, Serializable {
 
     @Override
     public void addSubscriber(Observer sub) {
-        System.out.println("Newspaper: " + name + " added subscriber");
-        System.out.println(this.hashCode());
         subscribers.add(sub);
     }
 
@@ -44,14 +42,13 @@ public class Newspaper implements Observable, Serializable {
 
     @Override
     public void notifySubscribers(String pubName) {
-        System.out.println(subscribers.size());
         subscribers.forEach(sub -> sub.update(pubName));
     }
 
     public void publishContent(boolean isAd) {
+        System.out.println(isAd);
         factory = FactoryCreator.getFactory(isAd);
         Content content = factory.produceContent(name);
-        System.out.println(content.getTitle());
         publishedContent.add(content);
         notifySubscribers(name);
     }

@@ -21,4 +21,9 @@ public class StandardPayBehavior implements PayBehavior {
     public boolean isPremium() {
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Standard";
+    }
 }
