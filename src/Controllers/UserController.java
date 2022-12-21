@@ -73,8 +73,11 @@ public class UserController {
         return user.getPayBehavior().calculateSubscription(getSubbedNewspapers());
     }
 
-
     public User getUser() {
         return user;
+    }
+
+    public void paySubscription() {
+        getSubbedNewspapers().forEach(n -> n.receivePayment(n.getMonthlyPrice()));
     }
 }

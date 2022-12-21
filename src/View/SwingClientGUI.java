@@ -152,6 +152,9 @@ public class SwingClientGUI extends JPanel implements ClientGUI {
         double amount = userController.getMonthlyCost();
         PayPanel payPanel = new PayPanel(amount);
         int result = JOptionPane.showConfirmDialog(null, payPanel, "Pay Subscription", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            userController.paySubscription();
+        }
     }
 
     private void updateUserInfo() {
