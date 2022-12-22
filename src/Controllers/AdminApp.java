@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminApp {
-    private List<ClientGUI> clientPanels;
-    private AdminGUI adminGUI;
-    private NewspaperDAO newspaperDAO;
-    private UserDAO userDAO;
+    private final List<ClientGUI> clientPanels;
+    private final AdminGUI adminGUI;
+    private final NewspaperDAO newspaperDAO;
+    private final UserDAO userDAO;
 
     public AdminApp(AdminGUI adminGUI, NewspaperDAO newspaperDAO, UserDAO userDAO) {
         this.adminGUI = adminGUI;
