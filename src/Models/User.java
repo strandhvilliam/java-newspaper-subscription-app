@@ -55,6 +55,6 @@ public class User implements Observer {
 
     @Override
     public void update(String pubName) {
-        userController.update(pubName);
+        userController.update(pubName); // controller hämtar artikel från DAO och visar i GUI
     }
 }

@@ -12,7 +12,7 @@ public class StandardPayBehavior implements PayBehavior {
         }
     }
 
-    public double calculateSubscription(List<Newspaper> subbedNewspapers) {
+    public double calcPayment(List<Newspaper> subbedNewspapers) {
         return subbedNewspapers.stream()
             .mapToDouble(Newspaper::getMonthlyPrice)
             .sum();

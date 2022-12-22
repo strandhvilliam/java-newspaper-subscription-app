@@ -16,7 +16,7 @@ public class PremiumPayBehavior implements PayBehavior {
     }
 
     @Override
-    public double calculateSubscription(List<Newspaper> subbedNewspapers) {
+    public double calcPayment(List<Newspaper> subbedNewspapers) {
         return subbedNewspapers.stream()
                 .mapToDouble(Newspaper::getMonthlyPrice)
                 .sum() * premiumMarkup;

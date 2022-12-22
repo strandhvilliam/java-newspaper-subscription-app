@@ -22,7 +22,11 @@ public class UserController {
 
     public void update(String pubName) {
         //check paybehavior and if ad
-        Newspaper newspaper = newspaperDAO.readNewspapers().stream().filter(n -> n.getName().equals(pubName)).findFirst().get();
+        Newspaper newspaper = newspaperDAO.readNewspapers()
+                .stream()
+                .filter(n -> n.getName().equals(pubName))
+                .findFirst()
+                .get();
         System.out.println("Updating article reader for " + newspaper.hashCode());
         Content content = newspaper.getLatestContent();
         if (content instanceof Ad) {
@@ -70,7 +74,7 @@ public class UserController {
     }
 
     public double getMonthlyCost() {
-        return user.getPayBehavior().calculateSubscription(getSubbedNewspapers());
+        return user.getPayBehavior().calcPayment(getSubbedNewspapers());
     }
 
     public User getUser() {
