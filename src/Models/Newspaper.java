@@ -71,7 +71,6 @@ public class Newspaper implements Observable {
         this.totalRevenue = totalRevenue;
     }
 
-
     @Override
     public String toString() {
         return name + " - " + description + " - " + "$"+ monthlyPrice;
