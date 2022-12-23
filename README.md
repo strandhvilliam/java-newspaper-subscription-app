@@ -14,7 +14,7 @@ This school assignment involves creating a program and applying design patterns,
 
 - Java -> JDK 19
 - GUI -> Swing
-- L&F -> FlatLaf (https://www.formdev.com/flatlaf/)
+- L&F -> <a href="https://www.formdev.com/flatlaf/">FlatLaf</a>
 
 ## Class diagram
 
