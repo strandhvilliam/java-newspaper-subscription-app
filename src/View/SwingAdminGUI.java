@@ -25,7 +25,7 @@ public class SwingAdminGUI extends JFrame implements AdminGUI{
 
 
     public SwingAdminGUI() {
-        super("Admin App - Newspaper System");
+        super("Admin App - MyNewspaperReader");
 
         clientsMenu.addMenuListener(new MenuListener() {
             @Override
@@ -68,14 +68,14 @@ public class SwingAdminGUI extends JFrame implements AdminGUI{
         setJMenuBar(menuBar);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(800, 1000);
+        setSize(760, 800);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     public void showPublishContentWindow() {
         PublishContentDialog publishContentDialog = new PublishContentDialog(adminApp.getNewspapers());
-        int option = JOptionPane.showConfirmDialog(null, publishContentDialog, "Publish Models.Content", JOptionPane.OK_CANCEL_OPTION);
+        int option = JOptionPane.showConfirmDialog(null, publishContentDialog, "Publish Content", JOptionPane.OK_CANCEL_OPTION);
         if (option == JOptionPane.OK_OPTION) {
             adminApp.publishContent(
                     publishContentDialog.getIsAd(),
@@ -94,7 +94,7 @@ public class SwingAdminGUI extends JFrame implements AdminGUI{
     public void showAddNewspaperWindow() {
         AddNewspaperDialog addNewspaperDialog = new AddNewspaperDialog();
         int option = JOptionPane.showConfirmDialog(
-                null, addNewspaperDialog, "Add Models.Newspaper", JOptionPane.OK_CANCEL_OPTION);
+                null, addNewspaperDialog, "Add Newspaper", JOptionPane.OK_CANCEL_OPTION);
         if (option == JOptionPane.OK_OPTION &&
                 !addNewspaperDialog.getNameField().equals("") &&
                 !addNewspaperDialog.getDescriptionField().equals("") &&
@@ -115,7 +115,6 @@ public class SwingAdminGUI extends JFrame implements AdminGUI{
             }
         });
         if (adminApp.getClientPanels().size() == 0) {
-            System.out.println(adminApp.getClientPanels().size());
             JLabel label = new JLabel("No clients connected");
             JButton tempButton = new JButton("Create new client");
             tempButton.setPreferredSize(new Dimension(200, 35));
@@ -129,6 +128,8 @@ public class SwingAdminGUI extends JFrame implements AdminGUI{
             c.gridy = 1;
             tempPanel.add(tempButton, c);
             add(tempPanel, BorderLayout.CENTER);
+            revalidate();
+            repaint();
         } else {
             System.out.println(adminApp.getClientPanels().size());
             tempPanel = null;

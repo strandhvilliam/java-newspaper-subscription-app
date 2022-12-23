@@ -25,7 +25,6 @@ public class AdminApp {
     }
 
     public void createNewspaper(String name, String publisherName, double monthlyCost) {
-        // TODO implement here
         newspaperDAO.createNewspaper(name, publisherName, monthlyCost);
     }
 
@@ -67,7 +66,6 @@ public class AdminApp {
         clientGUI.setGUIController(userController);
         user.setUserApp(userController);
         addClientPanel(clientGUI);
-        System.out.println("Added user " + user.getName());
     }
 
 }

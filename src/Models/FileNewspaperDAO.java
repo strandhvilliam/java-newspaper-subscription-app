@@ -6,7 +6,6 @@ import java.util.List;
 
 public class FileNewspaperDAO implements NewspaperDAO {
     private final File dbFile;
-
     private List<Newspaper> newspapersList;
     public FileNewspaperDAO(String newspaperDBFilePath) {
         this.dbFile = new File(newspaperDBFilePath);

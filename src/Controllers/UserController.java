@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UserController {
     private final ArticleReader articleReader;
-    private User user;
+    private final User user;
     private final NewspaperDAO newspaperDAO;
     private final ClientGUI clientGUI;
 
@@ -21,13 +21,11 @@ public class UserController {
     }
 
     public void update(String pubName) {
-        //check paybehavior and if ad
         Newspaper newspaper = newspaperDAO.readNewspapers()
                 .stream()
                 .filter(n -> n.getName().equals(pubName))
                 .findFirst()
                 .get();
-        System.out.println("Updating article reader for " + newspaper.hashCode());
         Content content = newspaper.getLatestContent();
         if (content instanceof Ad) {
             if (!user.getPayBehavior().isPremium()) {
@@ -45,10 +43,8 @@ public class UserController {
     }
 
     public void unsubscribe(Newspaper n) {
-        System.out.println("Unsubscribing from " + n.getName());
         n.removeSubscriber(user);
         user.removeSubscription(n.getName());
-        //userDAO.updateUser(user);
     }
 
     public void changePayBehavior() {

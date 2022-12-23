@@ -22,9 +22,7 @@ public class Newspaper implements Observable {
         this.totalRevenue = 0;
         this.subscribers = new ArrayList<>();
         this.publishedContent = new ArrayList<>();
-        //this.singletonDataHandler = SingletonDataHandler.getInstance();
     }
-
 
     @Override
     public void addSubscriber(Observer sub) {

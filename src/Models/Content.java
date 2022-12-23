@@ -17,7 +17,6 @@ public abstract class Content implements Comparable<Content> {
         this.date = LocalDate.now();
     }
 
-
     public abstract String getHTMLContent();
     public String getPublisherName() {
         return publisherName;

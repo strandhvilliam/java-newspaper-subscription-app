@@ -30,9 +30,6 @@ public class SwingClientGUI extends JPanel implements ClientGUI {
     private UserController userController;
 
     public SwingClientGUI() {
-//        montlyCostAmount.setFont(new Font("sans-serif", Font.BOLD, 14));
-
-
         showCatalogBtn.setPreferredSize(new Dimension(160, 30));
         paySubscriptionBtn.setPreferredSize(new Dimension(160, 30));
         memberTypeBtn.setPreferredSize(new Dimension(160, 30));
@@ -98,7 +95,6 @@ public class SwingClientGUI extends JPanel implements ClientGUI {
         articles.forEach(System.out::println);
 
         HTMLDocument doc = (HTMLDocument) clientTextPane.getStyledDocument();
-//            doc.insertAfterEnd(doc.getCharacterElement(doc.getLength()), sb.toString());
         try {
             doc.remove(0, doc.getLength());
         } catch (BadLocationException e) {
